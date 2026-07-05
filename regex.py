@@ -110,13 +110,6 @@ class RegexTokenizer(Tokenizer):
         return ids
 
     def encode(self, text, allowed_special="none_raise"):
-        """
-        Unlike encode_ordinary, this function handles special tokens.
-        allowed_special: can be "all"|"none"|"none_raise" or a custom set of special tokens
-        if none_raise, then an error is raised if any special token is encountered in text
-        this is the default tiktoken behavior right now as well
-        any other behavior is either annoying, or a major footgun
-        """
         # decode the user desire w.r.t. handling of special tokens
         special = None
         if allowed_special == "all":
